@@ -1,3 +1,13 @@
+/*------------Toggle icon navbar----------------*/
+
+let menuIcon = document.querySelector('#menuicon');
+let navbar = document.querySelector('.navbar');
+
+menuIcon.onclick = () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+};
+
 /*------------Scroll Section Active Link----------*/
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
@@ -24,6 +34,17 @@ window.onscroll = () => {
         header.classList.toggle('sticky', window.scrollY > 100);
 
         /*------------Remoove toggle icon and navbar when click navbar link (scroll)-------------*/ 
-
         
+        menuIcon.classList.remove('bx-x');
+        navbar.classList.remove('active');     
 };
+
+ /*------------Scroll Reveal----------*/
+ScrollReveal({
+    reset: true,
+    distance: '80px',
+    duration: 2000,
+    delay: 200,
+});
+
+ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
